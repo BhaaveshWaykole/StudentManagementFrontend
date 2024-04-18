@@ -19,9 +19,16 @@ function Signup() {
             const password = passwordRef.current.value;
             const userType = userTypeRef.current.value;
             const prn = prnRef.current.value;
-            const username = nameRef.current.value;
-            await axios.post(`/api/students/register`, { email, password, userType, prn, username })
-            alert()
+            const name = nameRef.current.value;
+            console.log(userType)
+            if(userType === 'student'){
+                const res = await axios.post(`/api/students/register`, { email, password, userType, prn, name })
+                console.log(res.data)
+            }else {
+                const res = await axios.post(`/api/teachers/register`, { name, email, password, userType })
+                console.log(res.data)
+            }
+            // alert(res.)
         } catch (err) {
             console.log(err)
         }
@@ -51,7 +58,7 @@ function Signup() {
                     <div className="input">
                         <img src="" alt="" />
                         <input type="Name"
-                            placeholder="Name"
+                            placeholder="Email Id"
                             ref={nameRef}
                         />
                     </div>

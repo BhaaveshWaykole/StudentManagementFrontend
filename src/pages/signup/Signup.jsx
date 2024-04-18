@@ -51,7 +51,7 @@ function Signup() {
                     <div className="input">
                         <img src="" alt="" />
                         <input type="Name"
-                            placeholder="Email Id"
+                            placeholder="Name"
                             ref={nameRef}
                         />
                     </div>
